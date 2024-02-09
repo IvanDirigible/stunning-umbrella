@@ -26,13 +26,13 @@ const questions = [
         type: 'input',
         name: 'inputTextFill',
         message: 'Please enter your desired text color with either a color keyword or the hexidecimal number.',
-        validate: (answer) => {
-            if (answer !== colorKeywords.includes(answer.toLowerCase()) || answer !== /0x[\da-f]/i.test(answer)) {
-                console.log(`Answer: ${answer}\n Answer.thing: ${answer.inputTextFill}`);
-                return console.log("\nWe couldn't find this color. Please try again.")
-            }
-            return true
-        },
+        // validate: (answer) => {
+        //     if (answer !== colorKeywords.includes(answer.toLowerCase()) || answer !== /0x[\da-f]/i.test(answer)) {
+        //         console.log(`Answer: ${answer}\n Answer.thing: ${answer.inputTextFill}`);
+        //         return console.log("\nWe couldn't find this color. Please try again.")
+        //     }
+        //     return true
+        // },
     },
     // {
     //     type: 'input',
@@ -91,7 +91,7 @@ const questions = [
 function generateLogo(data) {
     let logoShape = ''
     if (data.inputShape === 'Circle') {
-        logoShape = new Circle(data.inputShapeFill, data.inputText, data.inputTextFill);
+        logoShape = new Circle(data.inputShapeKeyword, data.inputText, data.inputTextFill);
     }
     if (data.inputShape === 'Triangle') {
         logoShape = new Triangle(data.inputShapeFill, data.inputText, data.inputTextFill);
@@ -99,7 +99,8 @@ function generateLogo(data) {
     if (data.inputShape === 'Square') {
         logoShape = new Square(data.inputShapeFill, data.inputText, data.inputTextFill);
     }
-    console.log(logoShape);
+    console.log(`logoShape: ${logoShape}`);
+    console.log(`inputShapeKeyword:${data.inputShapeKeyword}, Text:${data.inputText}, TextFill:${data.inputTextFill}`);
     return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
 
     ${logoShape}

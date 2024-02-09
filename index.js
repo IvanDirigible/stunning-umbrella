@@ -1,6 +1,14 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const { Circle, Triangle, Square } = require('./lib/shapes')
+const colorKeywords = require('./lib/colorKeywords')
+
+// const inputTypeValidator = (input) => {
+//     if (input !== colorKeywords.includes(input.toLowerCase()) || input !== /0x[\da-f]/i.test(input)) {
+//         return console.log("\nWe couldn't find this color. Please try again.")
+//     } else
+//     return true
+// };
 
 const questions = [
     {
@@ -15,31 +23,37 @@ const questions = [
         },
     },
     {
-        type: 'list',
+        type: 'input',
         name: 'inputTextFill',
-        message: 'Next is the text color. Would you like to enter a color keyword or do you know the hexidecimal number for your desired color?',
-        choices: ['Color Keyword', 'Hexidecimal Number'],
-    },
-    {
-        type: 'input',
-        name: 'inputTextKeyword',
-        message: "Please enter your desired color and we'll see if we can find it.",
-        when: (answers) => {
-            if (answers.inputTextFill === 'Color Keyword') {
-                return true
+        message: 'Please enter your desired text color with either a color keyword or the hexidecimal number.',
+        validate: (answer) => {
+            if (answer !== colorKeywords.includes(answer.toLowerCase()) || answer !== /0x[\da-f]/i.test(answer)) {
+                console.log(`Answer: ${answer}\n Answer.thing: ${answer.inputTextFill}`);
+                return console.log("\nWe couldn't find this color. Please try again.")
             }
+            return true
         },
     },
-    {
-        type: 'input',
-        name: 'inputTextHex',
-        message: "Please enter the hexidecimal number of your desired color.",
-        when: (answers) => {
-            if (answers.inputTextFill === 'Hexidecimal Number') {
-                return true
-            }
-        },
-    },
+    // {
+    //     type: 'input',
+    //     name: 'inputTextKeyword',
+    //     message: "Please enter your desired color and we'll see if we can find it.",
+    //     when: (answers) => {
+    //         if (answers.inputTextFill === 'Color Keyword') {
+    //             return true
+    //         }
+    //     },
+    // },
+    // {
+    //     type: 'input',
+    //     name: 'inputTextHex',
+    //     message: "Please enter the hexidecimal number of your desired color.",
+    //     when: (answers) => {
+    //         if (answers.inputTextFill === 'Hexidecimal Number') {
+    //             return true
+    //         }
+    //     },
+    // },
     {
         type: 'list',
         name: 'inputShape',

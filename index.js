@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const { Circle, Triangle, Square } = require('./lib/shapes-copy')
+const { Circle, Triangle, Square } = require('./lib/shapes')
 const colorKeywords = require('./lib/colorKeywords')
 
 // const inputTypeValidator = (input) => {

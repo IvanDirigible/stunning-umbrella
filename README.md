@@ -60,7 +60,7 @@ The following image shows a mock-up of the generated SVG given the following inp
 
 The following link demonstrates the application generating a new SVG logo:
 
-* Screencastify: 
+* Screencastify: https://watch.screencastify.com/v/aGpC8H68g5fxL8qWLfDr
 
 ## Credits
 List of 140+ browser-supported colors sourced from the following: https://www.w3schools.com/cssref/css_colors.php

@@ -1,7 +1,7 @@
 <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
 
-    <rect x="70" y="25" width="160" height="160" fill="purple" />
+    <rect x="70" y="25" width="160" height="160" fill="beige" />
 
-    <text x="150" y="125" font-size="60" text-anchor="middle" fill="darkgreen">WWW</text>
+    <text x="150" y="125" font-size="60" text-anchor="middle" fill="black">XXX</text>
 
 </svg>
